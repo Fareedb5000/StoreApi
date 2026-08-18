@@ -1,5 +1,5 @@
 # 1. Pull the official Microsoft .NET 10 SDK image to compile your code
-FROM ://microsoft.com AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
 # 2. Copy your files into the container and build the binaries
@@ -8,7 +8,7 @@ RUN dotnet restore
 RUN dotnet publish -c Release -o /app/publish
 
 # 3. Pull the lightweight .NET 10 ASP.NET runtime image to execute it
-FROM ://microsoft.com AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/publish .
 
