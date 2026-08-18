@@ -16,5 +16,5 @@ COPY --from=build /app/publish .
 EXPOSE 8080
 ENV ASPNETCORE_URLS=http://+:8080
 
-# 5. Boot up your API (Change 'YourProjectName' to your exact project name)
+# 5. Boot up your API (Configured matching your StoreApi.csproj file)
 ENTRYPOINT ["dotnet", "StoreApi.dll"]
